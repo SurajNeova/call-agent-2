@@ -1,0 +1,5 @@
+# DataRobot Custom Model Requirements
+# These packages are needed for the Transcript Quality Validator
+
+pandas>=1.3.0
+numpy>=1.21.0

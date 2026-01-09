@@ -1,0 +1,54 @@
+name: Transcript Quality Validator
+type: inference
+targetType: Regression
+target: quality_score
+
+description: >
+  Validates pharmaceutical sales call transcripts for quality, completeness, and compliance.
+  Outputs quality score (0-1) and routing decision. Agent 1 in multi-agent pharma workflow.
+
+# Model version info
+modelID: transcript-quality-validator
+version:
+  major: 1
+  minor: 0
+  patch: 0
+
+# Prediction schema
+predictions:
+  - name: quality_score
+    type: float
+    description: Overall quality score from 0.0 to 1.0
+  - name: route
+    type: string
+    description: Routing decision (process/manual_review/clarification_needed/reject/compliance_review)
+  - name: confidence
+    type: string
+    description: Confidence level (high/medium/low)
+  - name: routing_reason
+    type: string
+    description: Explanation for routing decision
+  - name: word_count
+    type: integer
+    description: Number of words in transcript
+  - name: has_compliance_flags
+    type: boolean
+    description: Whether compliance issues were detected
+
+# Input schema
+inputs:
+  - name: transcript
+    type: string
+    required: true
+    description: Raw transcript text from sales call
+
+# Environment requirements
+runtimeParameterDefinitions: []
+
+# Tags for organization
+tags:
+  - agent-1
+  - quality-validator
+  - pharma
+  - compliance
+  - intake-coordinator
